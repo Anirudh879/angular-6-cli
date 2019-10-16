@@ -1,0 +1,22 @@
+[
+    {
+        "id":"1",
+        "fname":"Anirudh",
+        "lname":"Singh"
+    },
+    {
+        "id":"2",
+        "fname":"Sandipan",
+        "lname":"Singh"
+    },
+    {
+        "id":"3",
+        "fname":"Tushar",
+        "lname":"Singh"
+    },
+    {
+        "id":"4",
+        "fname":"Rachit",
+        "lname":"Singh"
+    }
+]

@@ -1,0 +1,120 @@
+<section>
+  <h2>Affidavit Module</h2>
+    <form [formGroup]="affidavitForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div col>
+            <div class="form-group">
+                <label for="fName">First Name</label>
+                <input type="text"  formControlName="fName" class="form-control" maxlength=8 [ngClass]="{ 'is-invalid': submitted && f.fName.errors }" />
+                <div *ngIf="submitted && f.fName.errors" class="invalid-feedback">
+                    <div *ngIf="f.fName.errors.required">First Name is required</div>
+                    <div *ngIf="f.fName.errors.minlength">Valid First Name please</div>
+                </div>
+            </div>
+        </div>
+        <div col>
+            <div class="form-group">
+                <label for="mName" >Middle Name</label>
+                <input type="text" formControlName="mName"  class="form-control" maxlength=8 [ngClass]="{ 'is-invalid': submitted && f.mName.errors }"/>
+                <div *ngIf="submitted && f.mName.errors" class="invalid-feedback">
+                    <div *ngIf="f.mName.errors.required">Middle Name is required</div>
+                    <div *ngIf="f.mName.errors.minlength">Valid Middle Name please</div>
+                </div>
+            </div>
+          </div>
+          <div col>
+              <div class="form-group">
+                  <label for="lName">Last Name</label>
+                  <input type="text" formControlName="lName" class="form-control" maxlength=8 [ngClass]="{ 'is-invalid': submitted && f.lName.errors }"/>
+                  <div *ngIf="submitted && f.lName.errors" class="invalid-feedback">
+                      <div *ngIf="f.lName.errors.required">Last Name is required</div>
+                      <div *ngIf="f.lName.errors.minlength">Valid Last Name please</div>
+                  </div>
+                </div>
+            </div>
+      </div>
+       <div class="row">
+          <div col>
+              <label for="DOB">DOB</label>
+              <input type="text" formControlName="DOB"class="form-control" />
+          </div>
+      </div>
+      <div class="row">
+          <div col>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" formControlName="email"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.pattern">Valid Email please</div> 
+
+                </div>
+              </div>
+          </div>
+          <div col>
+              <div class="form-group">
+              <label for="password">password</label>
+              <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">password is required</div>
+                  <div *ngIf="f.password.errors.minlength">Valid password please</div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div>
+          <div col>
+              <label for="address">Address</label>
+              <input type="text" formControlName="address"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                  <div *ngIf="f.address.errors.required">Address is required</div>
+                  <div *ngIf="f.address.errors.minlength">Valid address please</div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div col>
+              <label for="city">city/town</label>
+              <select formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                  <option value="" disabled>Choose a state</option>
+                  <option *ngFor="let city of citys" [value]="city.abbrev">
+                      {{city.name}}
+                  </option>
+              </select>
+              <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                    <div *ngIf="f.city.errors.required">city is required</div>
+                </div>
+            </div>
+            <div col>
+                <label for="country">country</label>
+                  <input type="text" formControlName="country"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" />
+                  <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                        <div *ngIf="f.country.errors.required">country is required</div>
+                    </div> 
+                </div>
+              <div col>
+                  <label for="postCode">postal Code</label>
+                    <input type="text" formControlName="postCode"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.postCode.errors }"/>
+                    <div *ngIf="submitted && f.postCode.errors" class="invalid-feedback">
+                            <div *ngIf="f.postCode.errors.required">Postcode is required</div>
+                        </div> 
+                </div>
+      </div>
+      <div class="row">
+          <div>
+              <label >Male</label>
+                <input type="radio" name="gender" formControlName="gender" value ="Male" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"/>
+            </div>
+            <div col>
+                <label >Female</label>
+                  <input type="radio" name="gender" formControlName="gender" value ="Female" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"/>
+              </div>   
+      </div>
+      <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+            <div *ngIf="f.gender.errors.required">gender is required</div>
+        </div>
+        <div class="row">    
+            <button class="btn btn-primary">Submit</button>
+          </div>
+          </form>
+</section>
